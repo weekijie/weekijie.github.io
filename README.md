@@ -18,28 +18,6 @@ A personal portfolio website built with **ASP.NET Core MVC**. This project is de
 *   **Styling**: Vanilla CSS (CSS Variables for theming)
 *   **Data**: JSON (No database required for personal profile)
 
-## Getting Started
-
-### Prerequisites
-
-*   [.NET SDK](https://dotnet.microsoft.com/download) (Version 10.0 or later)
-
-### Running Locally
-
-1.  Clone the repository:
-    ```bash
-    git clone <repository-url>
-    cd Portfolio
-    ```
-
-2.  Run the application:
-    ```bash
-    dotnet run
-    ```
-
-3.  Open your browser and navigate to:
-    `http://localhost:5257`
-
 ## Customization
 
 ### Updating Profile Information
