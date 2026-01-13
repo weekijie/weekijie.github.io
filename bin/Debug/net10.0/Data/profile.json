@@ -1,7 +1,7 @@
 {
     "name": "Wee Ki Jie",
     "title": "Software Developer",
-    "bio": "Passionate software developer with expertise in building modern web applications.",
+    "bio": "Forward-thinking developer with a passion for AI and Machine Learning, backed by a strong background in enterprise-grade engineering.",
     "location": "Singapore",
     "email": "kijiejob@gmail.com",
     "linkedIn": "https://www.linkedin.com/in/wee-ki-jie-b82336209/",
@@ -66,7 +66,7 @@
             "award": "Semi Finalist ",
             "organizer": "Defence Science and Technology Agency",
             "date": "May 2025",
-            "description": "Trained an Automatic Speech Recognition (ASR) model using Whisper, fine-tuned with a custom dataset and data augmentation techniques for a specific use case. Developed and trained a reinforcement learning (RL) model for an autonomous robotic car to navigate the environment using a point-based reward system, competing against multiple teams in alternating “hunter” and “hunted” roles.",
+            "description": "Trained an Automatic Speech Recognition (ASR) model using Whisper, fine-tuned with a custom dataset and data augmentation techniques for a specific use case. Trained and optimized a reinforcement learning (RL) model for an autonomous robotic car to navigate the environment using a point-based reward system, competing against multiple teams in alternating “hunter” and “hunted” roles.",
             "credentialUrl": "https://certificates.nextid.com/certificate?id=f1c86e33-fe2f-4019-a187-a90ec584f4d0",
             "proposalUrl": "",
             "iconUrl": "https://media.licdn.com/dms/image/v2/C510BAQGBxsnmmhvsMg/company-logo_100_100/company-logo_100_100/0/1631396166213?e=1769644800&v=beta&t=8L59yCXpLFk9qVhUN8_CIHIXzyCSDvbu3ulsjylanvQ",
@@ -98,13 +98,14 @@
     "skills": [
         "C#",
         "ASP.NET Core",
+        "Python",
+        "Java",
         "JavaScript",
         "HTML/CSS",
         "SQL Server",
+        "Microsoft Dynamics 365",
         "Git",
-        "Python",
-        "Java",
         "Android Studio",
-        "Microsoft Dynamics CRM"
+        "Agile"
     ]
 }

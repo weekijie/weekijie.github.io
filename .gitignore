@@ -1,0 +1,7 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Documents
+wwwroot/documents/*.pdf
+wwwroot/documents/TeamMink.pdf
