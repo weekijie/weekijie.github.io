@@ -24,14 +24,14 @@ public class GitHubService : IGitHubService
         _logger = logger;
         _username = configuration["GitHub:Username"] ?? "weekijie";
         _cacheDuration = int.Parse(configuration["Cache:DurationMinutes"] ?? "5");
-        
+
         _client = new GitHubClient(new ProductHeaderValue("Portfolio-Website"));
     }
 
     public async Task<GitHubProfile?> GetProfileAsync()
     {
         var cacheKey = $"github_profile_{_username}";
-        
+
         if (_cache.TryGetValue(cacheKey, out GitHubProfile? cachedProfile))
         {
             return cachedProfile;
@@ -40,7 +40,7 @@ public class GitHubService : IGitHubService
         try
         {
             var user = await _client.User.Get(_username);
-            
+
             var profile = new GitHubProfile
             {
                 Login = user.Login,
@@ -67,7 +67,7 @@ public class GitHubService : IGitHubService
     public async Task<List<Repository>> GetRepositoriesAsync()
     {
         var cacheKey = $"github_repos_{_username}";
-        
+
         if (_cache.TryGetValue(cacheKey, out List<Repository>? cachedRepos))
         {
             return cachedRepos ?? new List<Repository>();
@@ -76,7 +76,7 @@ public class GitHubService : IGitHubService
         try
         {
             var repos = await _client.Repository.GetAllForUser(_username);
-            
+
             var repositories = repos
                 .Where(r => !r.Fork)
                 .OrderByDescending(r => r.StargazersCount)
@@ -87,6 +87,7 @@ public class GitHubService : IGitHubService
                     Name = r.Name,
                     Description = r.Description ?? string.Empty,
                     HtmlUrl = r.HtmlUrl,
+                    HomepageUrl = r.Homepage ?? string.Empty,
                     Language = r.Language ?? "Unknown",
                     StargazersCount = r.StargazersCount,
                     ForksCount = r.ForksCount,

@@ -7,7 +7,7 @@
 <section class="hero" id="about">
     <div class="hero-content">
         <div class="hero-text">
-            <h1 class="greeting">hi @string.Join(" ", Model.Profile.Name.Split(' ').Skip(1)).ToLower() here 👋</h1>
+            <h1 class="greeting">hi👋</h1>
             <p class="intro">
                 @if (!string.IsNullOrEmpty(Model.Profile.Bio))
                 {
@@ -71,7 +71,7 @@
                     <div class="company-logo">
                         @if (!string.IsNullOrEmpty(job.IconUrl))
                         {
-                            <img src="@job.IconUrl" alt="@job.Company" class="logo-image" />
+                            <img src="@job.IconUrl" alt="@job.Company" class="logo-image" loading="lazy" />
                         }
                         else
                         {
@@ -109,7 +109,7 @@
                     <div class="company-logo">
                         @if (!string.IsNullOrEmpty(edu.IconUrl))
                         {
-                            <img src="@edu.IconUrl" alt="@edu.Institution" class="logo-image" />
+                            <img src="@edu.IconUrl" alt="@edu.Institution" class="logo-image" loading="lazy" />
                         }
                         else
                         {
@@ -146,7 +146,7 @@
                     <div class="cert-icon">
                         @if (!string.IsNullOrEmpty(cert.IconUrl))
                         {
-                            <img src="@cert.IconUrl" alt="@cert.Issuer" class="logo-image" />
+                            <img src="@cert.IconUrl" alt="@cert.Issuer" class="logo-image" loading="lazy" />
                         }
                         else
                         {
@@ -182,39 +182,50 @@
     <div class="projects-grid">
         @foreach (var repo in Model.Repositories)
         {
-            <a href="@repo.HtmlUrl" target="_blank" rel="noopener" class="project-card">
+            <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-name">@repo.Name</h3>
                     <div class="project-links">
-                        <i class="fab fa-github"></i>
+                        @if (!string.IsNullOrEmpty(repo.HomepageUrl))
+                        {
+                            <a href="@repo.HomepageUrl" target="_blank" rel="noopener" class="demo-link" title="Live Demo"
+                                onclick="event.stopPropagation();">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        }
+                        <a href="@repo.HtmlUrl" target="_blank" rel="noopener" class="github-link" title="View on GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
-                <p class="project-description">
-                    @(string.IsNullOrEmpty(repo.Description) ? "No description provided" : repo.Description)
-                </p>
-                <div class="project-footer">
-                    <div class="project-stats">
-                        @if (repo.StargazersCount > 0)
-                        {
-                            <span class="stat"><i class="fas fa-star"></i> @repo.StargazersCount</span>
-                        }
-                        @if (repo.ForksCount > 0)
-                        {
-                            <span class="stat"><i class="fas fa-code-branch"></i> @repo.ForksCount</span>
-                        }
+                <a href="@repo.HtmlUrl" target="_blank" rel="noopener" class="project-card-body">
+                    <p class="project-description">
+                        @(string.IsNullOrEmpty(repo.Description) ? "No description provided" : repo.Description)
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-stats">
+                            @if (repo.StargazersCount > 0)
+                            {
+                                <span class="stat"><i class="fas fa-star"></i> @repo.StargazersCount</span>
+                            }
+                            @if (repo.ForksCount > 0)
+                            {
+                                <span class="stat"><i class="fas fa-code-branch"></i> @repo.ForksCount</span>
+                            }
+                        </div>
+                        <div class="project-tags">
+                            @if (!string.IsNullOrEmpty(repo.Language) && repo.Language != "Unknown")
+                            {
+                                <span class="tag language-tag">@repo.Language</span>
+                            }
+                            @foreach (var topic in repo.Topics.Take(2))
+                            {
+                                <span class="tag">@topic</span>
+                            }
+                        </div>
                     </div>
-                    <div class="project-tags">
-                        @if (!string.IsNullOrEmpty(repo.Language) && repo.Language != "Unknown")
-                        {
-                            <span class="tag language-tag">@repo.Language</span>
-                        }
-                        @foreach (var topic in repo.Topics.Take(2))
-                        {
-                            <span class="tag">@topic</span>
-                        }
-                    </div>
-                </div>
-            </a>
+                </a>
+            </div>
         }
     </div>
 </section>
@@ -232,7 +243,7 @@
                         <div class="comp-icon-wrapper">
                             @if (!string.IsNullOrEmpty(comp.IconUrl))
                             {
-                                <img src="@comp.IconUrl" alt="@comp.Organizer" class="logo-image" />
+                                <img src="@comp.IconUrl" alt="@comp.Organizer" class="logo-image" loading="lazy" />
                             }
                             else
                             {
@@ -285,7 +296,7 @@
                     @if (!string.IsNullOrEmpty(comp.ImageUrl))
                     {
                         <div class="comp-image-container">
-                            <img src="@comp.ImageUrl" alt="@comp.Name" class="comp-featured-image" />
+                            <img src="@comp.ImageUrl" alt="@comp.Name" class="comp-featured-image" loading="lazy" />
                         </div>
                     }
                 </div>
@@ -307,3 +318,33 @@
         </div>
     </section>
 }
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <h2 class="section-title">get in touch</h2>
+    <div class="contact-container">
+        <p class="contact-intro">
+            Have a question or want to work together? Feel free to reach out!
+        </p>
+        <form id="contactForm" class="contact-form">
+            <div class="form-group">
+                <label for="from_name">Name</label>
+                <input type="text" id="from_name" name="from_name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+                <label for="reply_to">Email</label>
+                <input type="email" id="reply_to" name="reply_to" required placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">
+                <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                <span class="btn-loading" style="display: none;"><i class="fas fa-spinner fa-spin"></i>
+                    Sending...</span>
+            </button>
+            <div id="formStatus" class="form-status"></div>
+        </form>
+    </div>
+</section>

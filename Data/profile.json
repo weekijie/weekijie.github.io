@@ -4,8 +4,8 @@
     "bio": "Forward-thinking developer with a passion for AI and Machine Learning, backed by a strong background in enterprise-grade engineering.",
     "location": "Singapore",
     "email": "kijiejob@gmail.com",
-    "linkedIn": "https://www.linkedin.com/in/wee-ki-jie-b82336209/",
-    "resumeUrl": "/resume.pdf",
+    "linkedIn": "https://www.linkedin.com/in/weekijie/",
+    "resumeUrl": "/documents/weekijie-resume.pdf",
     "experience": [
         {
             "title": "Programmer Analyst Trainee",
@@ -30,7 +30,7 @@
             "description": [
                 "Developed a mobile app for biometric facial measurement using ML Kit’s Face Detection API to support progressive lens fitting.",
                 "Built custom eyeglass detection and tracking models in PyTorch and applied OpenCV for lens contour extraction and optometric metric computation.",
-                "Created a real-time AR eyewear virtual try-on web app with Jeeliz VTO and gesture-based interaction via MediaPipe/Handsfree.js, enhanced by secondary-camera hand pose tracking"
+                "Created a real-time AR eyewear virtual try-on web app with Jeeliz VTO and gesture-based interaction via MediaPipe/Handsfree.js, enhanced by secondary-camera hand pose tracking."
             ]
         }
     ],
