@@ -1,43 +1,90 @@
 # Portfolio Website
 
-A personal portfolio website built with **ASP.NET Core MVC**. This project is designed to easily showcase your professional background, specific achievements like hackathons, and software projects using a clean, responsive design.
+A personal portfolio website built with **ASP.NET Core MVC** (.NET 10). Features a modern, responsive design with dark/light theme support.
+
+**Live Demo**: [weekijie.up.railway.app](https://weekijie.up.railway.app)
 
 ## Features
 
-*   **Dynamic Content**: All profile information is managed via a single JSON file (`Data/profile.json`).
-*   **Hackathons & Competitions**: Specialized section to showcase awards, featured project images, and even **embed PDF proposals** for direct viewing.
-*   **GitHub Integration**: Automatically fetches and displays your public repositories and profile stats.
-*   **Experience & Education**: Support for custom company/institution logos.
-*   **Document Viewer**: Built-in support to view local PDF documents (e.g., project proposals) directly within the application.
-*   **Responsive Design**: Modern UI that works well on desktop and mobile.
+- **Dynamic Content** - Profile data managed via `Data/profile.json`
+- **GitHub Integration** - Auto-fetches repositories and profile stats
+- **Contact Form** - Serverless email via EmailJS
+- **Dark/Light Theme** - System preference detection with manual toggle
+- **Mobile Responsive** - Hamburger menu for mobile navigation
+- **PDF Viewer** - Embedded proposal/document viewer
+- **Performance Optimized** - Lazy loading, Brotli/Gzip compression, caching
+- **SEO Ready** - Open Graph, Twitter Cards, JSON-LD structured data
 
 ## Tech Stack
 
-*   **Framework**: ASP.NET Core MVC (.NET 10)
-*   **Language**: C#
-*   **Styling**: Vanilla CSS (CSS Variables for theming)
-*   **Data**: JSON (No database required for personal profile)
+| Category | Technology |
+|----------|------------|
+| Framework | ASP.NET Core MVC (.NET 10) |
+| Language | C# |
+| Styling | Vanilla CSS (CSS Variables) |
+| Icons | Font Awesome 6 |
+| Fonts | Google Fonts (Inter) |
+| Hosting | Railway |
 
-## Customization
+## Quick Start
 
-### Updating Profile Information
-Edit the file `Data/profile.json`. This file contains all the data for:
-*   Bio & Contact Info
-*   Experience & Education
-*   Certifications
-*   Competitions
-*   Skills
+```bash
+# Clone
+git clone https://github.com/weekijie/Portfolio.git
+cd Portfolio
 
-### Adding Images
-You can use external URLs (e.g., LinkedIn media links) or local images.
-*   **External**: Paste the URL into the `iconUrl` or `imageUrl` fields in `profile.json`.
-*   **Local**: Place images in `wwwroot/images/` and reference them like `/images/my-photo.jpg`.
+# Run
+dotnet run
+```
 
-### Adding Documents (PDFs)
-To display a proposal or document in the Competitions section:
-1.  Place your PDF file in `wwwroot/documents/`.
-2.  In `profile.json`, set the `proposalUrl` field for the entry:
-    ```json
-    "proposalUrl": "/documents/MyProposal.pdf"
-    ```
-3.  The application will automatically render a collapsible viewer for the document.
+Open http://localhost:5257
+
+## Configuration
+
+### Profile Data
+Edit `Data/profile.json` to update:
+- Bio & contact info
+- Experience & education
+- Certifications & competitions
+- Skills
+
+### EmailJS (Contact Form)
+1. Create account at [emailjs.com](https://emailjs.com)
+2. Create service and template
+3. Set environment variables:
+   ```
+   EmailJS__ServiceId=your_service_id
+   EmailJS__TemplateId=your_template_id
+   EmailJS__PublicKey=your_public_key
+   ```
+
+### Documents
+Place PDFs in `wwwroot/documents/` and reference in `profile.json`:
+```json
+"proposalUrl": "/documents/MyProposal.pdf"
+```
+
+## Deployment (Railway)
+
+1. Push to GitHub
+2. Connect repo to [Railway](https://railway.app)
+3. Add environment variables
+4. Railway auto-deploys via Dockerfile
+
+## Project Structure
+
+```
+Portfolio/
+├── Controllers/       # MVC controllers
+├── Data/              # profile.json
+├── Models/            # View models
+├── Services/          # GitHub & Profile services
+├── Views/             # Razor views
+├── wwwroot/           # Static assets (CSS, JS, documents)
+├── Dockerfile         # Container config
+└── Program.cs         # App configuration
+```
+
+## License
+
+MIT
