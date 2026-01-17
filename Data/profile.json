@@ -46,6 +46,13 @@
     ],
     "certifications": [
         {
+            "name": "GitHub Copilot",
+            "issuer": "Microsoft",
+            "issueDate": "Jan 2026",
+            "credentialUrl": "https://learn.microsoft.com/en-us/users/KiJie-7466/credentials/7D57AB1F9DF5A1E0?ref=https%3A%2F%2Fwww.linkedin.com%2F",
+            "iconUrl": "https://media.licdn.com/dms/image/v2/D560BAQH32RJQCl3dDQ/company-logo_100_100/B56ZYQ0mrGGoAU-/0/1744038948046/microsoft_logo?e=1770249600&v=beta&t=78UET9wRbKhyub7csVyb3rWYFBRWE_6YLVdZeQN35ZE"
+        },
+        {
             "name": "Git Complete: The definitive, step-by-step guide to Git",
             "issuer": "Udemy",
             "issueDate": "Sep 2025",
